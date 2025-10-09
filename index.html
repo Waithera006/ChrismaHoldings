@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chrisma Holdings</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B3D0B">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <!-- Logo & Header -->
+    <div class="logo-section" id="logo">
+        <h1>Chrisma Holdings</h1>
+        <p>Quality supply of hay</p>
+    </div>
+
+    <!-- Services -->
+    <div class="services-section">
+        <div class="service-card" onclick="openOrderModal('Hay', 180)">
+            <div class="service-icon">🌾</div>
+            <h2>Hay</h2>
+            <p>KSh 180 per bale</p>
+            <button class="btn">Order</button>
+        </div>
+        <div class="service-card" onclick="openOrderModal('Ploughing', 3500)">
+            <div class="service-icon">🚜</div>
+            <h2>Ploughing</h2>
+            <p>KSh 3,500 per acre</p>
+            <button class="btn">Book</button>
+        </div>
+        <div class="service-card" onclick="openOrderModal('Transportation', 8)">
+            <div class="service-icon">🚚</div>
+            <h2>Hay Transportation</h2>
+            <p>KSh 8 per bale</p>
+            <button class="btn">Request</button>
+        </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="orders-section" id="ordersList">
+        <h2>My Orders</h2>
+        <div id="ordersContainer">
+            <p>No orders yet.</p>
+        </div>
+    </div>
+
+    <!-- M-Pesa Info -->
+    <div id="mpesaInfo" class="mpesa-info">
+        <p>Lipa na M-Pesa Pochi la Biashara 0728680817</p>
+    </div>
+
+</div>
+
+<!-- Order Modal -->
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeOrderModal()">&times;</span>
+        <h2 id="modalService">Place Order</h2>
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <input type="text" id="customerName" placeholder="Your Name" required>
+            <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+            <input type="text" id="customerLocation" placeholder="Delivery Location" required>
+            <input type="number" id="orderQuantity" placeholder="Quantity" required>
+            <button type="submit" class="btn">Submit Order</button>
+        </form>
+    </div>
+</div>
+
+<!-- Admin Panel -->
+<div class="admin-panel" id="adminSection">
+    <span class="close" onclick="closeAdmin()">&times;</span>
+    <h2>Admin Panel</h2>
+    <div id="adminOrders"></div>
+    <div id="adminServices"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
